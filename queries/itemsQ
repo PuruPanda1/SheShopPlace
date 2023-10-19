@@ -1,0 +1,15 @@
+INSERT INTO `items` (`itemId`, `itemImage`, `itemTitle`, `itemCat`, `salePrice`, `usualPrice`) VALUES (NULL, './assets/images/products/white_kurti.webp', 'White Kurti', 'New Arrivals', '599', '1400');
+INSERT INTO `items` (`itemId`, `itemImage`, `itemTitle`, `itemCat`, `salePrice`, `usualPrice`) VALUES (NULL, './assets/images/products/black_onepiece.webp', 'Black OnePiece', 'New Arrivals', '899', '2200');
+INSERT INTO `items` (`itemId`, `itemImage`, `itemTitle`, `itemCat`, `salePrice`, `usualPrice`) VALUES (NULL, './assets/images/products/silver_heels.jpg', 'High Silver Heels', 'New Arrivals', '1290', '3100');
+INSERT INTO `items` (`itemId`, `itemImage`, `itemTitle`, `itemCat`, `salePrice`, `usualPrice`) VALUES (NULL, './assets/images/products/croptop.jpg', 'Pink Crop Top', 'New Arrivals', '399', '1100');
+
+
+INSERT INTO `items` (`itemId`, `itemImage`, `itemTitle`, `itemCat`, `salePrice`, `usualPrice`) VALUES (NULL, './assets/images/products/greenwhite_dress.jpg', 'Green Dress', 'Trending', '999', '1100');
+INSERT INTO `items` (`itemId`, `itemImage`, `itemTitle`, `itemCat`, `salePrice`, `usualPrice`) VALUES (NULL, './assets/images/products/designer_croptop.jpg', 'Designer Croptop', 'Trending', '599', '1500');
+INSERT INTO `items` (`itemId`, `itemImage`, `itemTitle`, `itemCat`, `salePrice`, `usualPrice`) VALUES (NULL, './assets/images/products/red_onepiece.jpg', 'Christmas OnePiece', 'Trending', '2999', '5000');
+INSERT INTO `items` (`itemId`, `itemImage`, `itemTitle`, `itemCat`, `salePrice`, `usualPrice`) VALUES (NULL, './assets/images/products/black_cargo.jpg', 'Solid Black Cargo', 'Trending', '1200', '3100');
+
+INSERT INTO `items` (`itemId`, `itemImage`, `itemTitle`, `itemCat`, `salePrice`, `usualPrice`) VALUES (NULL, './assets/images/products/brown_offshoulder_top.webp', 'Brown Off-Shoulder Top', 'Top Rated', '799', '1800');
+INSERT INTO `items` (`itemId`, `itemImage`, `itemTitle`, `itemCat`, `salePrice`, `usualPrice`) VALUES (NULL, './assets/images/products/maroon_saree.jpg', 'Maroon Silk Saree', 'Top Rated', '2400', '3100');
+INSERT INTO `items` (`itemId`, `itemImage`, `itemTitle`, `itemCat`, `salePrice`, `usualPrice`) VALUES (NULL, './assets/images/products/leather_frock.jpg', 'Leather Frock', 'Top Rated', '1000', '1500');
+INSERT INTO `items` (`itemId`, `itemImage`, `itemTitle`, `itemCat`, `salePrice`, `usualPrice`) VALUES (NULL, './assets/images/products/black_overcoat.jpg', 'Black Overcoat', 'Top Rated', '2800', '4600');

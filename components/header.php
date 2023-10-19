@@ -65,7 +65,7 @@
 
         <div class="container">
 
-            <a href="#" class="header-logo">
+            <a href="index.php" class="header-logo">
                 <img src="./assets/images/logo/logo.svg" alt="SheShopPlace's logo" width="120" height="36">
             </a>
 
