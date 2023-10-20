@@ -8,7 +8,7 @@
         -->
 
         <?php
-            require_once "components/sidebar.php";
+//            require_once "components/sidebar.php";
             require_once "components/productBox.php"
         ?>
 
