@@ -13,7 +13,7 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST' && isset($_POST['product_id'])) {
 //    foreach ($_SESSION['cart'] as $item) {
 //        echo "<br>" . $item;
 //    }
-    header("Location: ../cart.php");
+    header("Location: ../index.php");
     exit();
 }
 ?>

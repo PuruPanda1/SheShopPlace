@@ -103,14 +103,23 @@
 
                 </button>
 
-                <button class="action-btn">
-                    <ion-icon name="heart-outline"></ion-icon>
-                    <span class="count">0</span>
-                </button>
+<!--                <button class="action-btn">-->
+<!--                    <ion-icon name="heart-outline"></ion-icon>-->
+<!--                    <span class="count">0</span>-->
+<!--                </button>-->
 
                 <button class="action-btn">
                     <ion-icon name="bag-handle-outline"></ion-icon>
-                    <span class="count">0</span>
+                    <span class="count">
+                        <?php
+                            $ids = $_SESSION['cart'];
+                            $size = 0;
+                            foreach ($ids as $id){
+                                $size = $size + 1;
+                            }
+                            echo $size;
+                        ?>
+                    </span>
                 </button>
 
             </div>
