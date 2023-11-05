@@ -12,13 +12,13 @@
     <!--
       - favicon
     -->
-    <link rel="shortcut icon" href="../assets/images/logo/favicon.ico" type="image/x-icon">
+    <link rel="shortcut icon" href="assets/images/logo/favicon.ico" type="image/x-icon">
 
     <!--
       - custom css link
     -->
-    <link rel="stylesheet" href="../assets/css/style-prefix.css">
-    <link rel="stylesheet" href="../assets/css/style.css">
+    <link rel="stylesheet" href="assets/css/style-prefix.css">
+    <link rel="stylesheet" href="assets/css/style.css">
     <!--    <link rel="stylesheet" href="./assets/css/main.css">-->
     <!--    <link rel="stylesheet" href="./assets/css/util.css">-->
     <!--    <link rel="stylesheet" href="./assets/css/loginform.css">-->
@@ -42,9 +42,22 @@
 
 <?php
 
-require_once "header.php";
+require_once "components/header.php";
 
-require_once '../config.php';
+require_once 'config.php';
+
+$cart = [];
+if (isset($_SESSION['cart'])) {
+    $cart = $_SESSION['cart'];
+}
+
+if (empty($cart)) {
+    echo "Your cart is empty.";
+}else{
+    foreach ($cart as $item) {
+        echo $item['id'];
+    }
+}
 
 if (isset($_GET['itemId'])) {
     $received_data = urldecode($_GET['itemId']);
@@ -68,7 +81,7 @@ function loadProduct($productId)
         echo "<div class='showcase-container'>";
         echo "<div class='showcase'>";
         echo "<div class='showcase-banner'>";
-        echo "<img src='." . $row['itemImage'] . "' alt='shampoo, conditioner & facewash packs' class='showcase-img'>";
+        echo "<img src='" . $row['itemImage'] . "' alt='shampoo, conditioner & facewash packs' class='showcase-img'>";
         echo "</div>";
         echo "<div class='showcase-content'>";
         echo "<a href='#'>";
@@ -98,7 +111,7 @@ function loadProduct($productId)
 <!--
   - custom js link
 -->
-<script src="../assets/js/script.js"></script>
+<script src="assets/js/script.js"></script>
 
 <!--
   - ionicon link

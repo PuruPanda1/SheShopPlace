@@ -112,7 +112,7 @@ function loadFeaturedProduct()
 
     while ($row = $result->fetch_assoc()) {
 
-        echo "<div class='showcase-container' onclick='redirectToProductPage(".$row['itemId'] .")'>";
+        echo "<div class='showcase-container' >";
         echo "<div class='showcase'>";
         echo "<div class='showcase-banner'>";
         echo "<img src='" . $row['itemImage'] . "' alt='shampoo, conditioner & facewash packs' class='showcase-img'>";
@@ -128,7 +128,10 @@ function loadFeaturedProduct()
         echo "<p class='price'>₹{$row['salePrice']}</p>";
         echo "<del>₹{$row['usualPrice']}</del>";
         echo "</div>";
-        echo "<button class='add-cart-btn'>add to cart</button>";
+        echo "<form action='utils/addToCart.php' method='post'>";
+        echo "<input type='hidden' name='product_id' value='".$row['itemId']."'>";
+        echo "<button class='add-cart-btn' type='submit'>add to cart</button>";
+        echo "</form>";
         echo "</div>";
         echo "</div>";
         echo "</div>";

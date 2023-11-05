@@ -121,8 +121,17 @@ require_once "components/header.php"
 
 <script>
     function redirectToProductPage(itemId) {
-        window.location.href = `components/productPage.php?itemId=`+itemId;
+        window.location.href = `productPage.php?itemId=`+itemId;
     }
+
+    function addToCart(productId, qty){
+        console.log("inside add to Cart")
+        var cart = JSON.parse(localStorage.getItem('cart')) || [];
+        cart.push({ id: productId, qty: qty });
+        localStorage.setItem('cart', JSON.stringify(cart));
+    }
+
+
 </script>
 
 <!--
