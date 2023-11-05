@@ -83,7 +83,7 @@ function loadItemSmall($itemCat)
 
     $result = $conn->query($query);
     while ($row = $result->fetch_assoc()) {
-        echo "<div class='showcase'>";
+        echo "<div class='showcase' onclick='redirectToProductPage(".$row['itemId'] .")'>";
         echo "<a href='#' class='showcase-img-box'>";
         echo "<img src='" . $row['itemImage'] . "'alt='relaxed short full sleeve t-shirt' width='70' class='showcase-img'>";
         echo "</a>";
@@ -112,7 +112,7 @@ function loadFeaturedProduct()
 
     while ($row = $result->fetch_assoc()) {
 
-        echo "<div class='showcase-container'>";
+        echo "<div class='showcase-container' onclick='redirectToProductPage(".$row['itemId'] .")'>";
         echo "<div class='showcase'>";
         echo "<div class='showcase-banner'>";
         echo "<img src='" . $row['itemImage'] . "' alt='shampoo, conditioner & facewash packs' class='showcase-img'>";
@@ -149,7 +149,7 @@ function loadNewProducts()
 
     while ($row = $result->fetch_assoc()) {
 
-        echo "<div class='showcase'>";
+        echo "<div class='showcase' onclick='redirectToProductPage(".$row['itemId'] .")'>";
         echo "<div class='showcase-banner'>";
         echo "<img src='".$row['itemImage']."' alt='Mens Winter Leathers Jackets' width='300' class='product-img default'>";
         echo "<img src='".$row['itemImage']."' alt='Mens Winter Leathers Jackets' width='300' class='product-img hover'>";
@@ -170,5 +170,42 @@ function loadNewProducts()
 
 
 }
+
+function loadProduct($productId)
+{
+
+    global $conn;
+
+    $query = "SELECT * FROM `items` WHERE itemId = ${productId}";
+
+    $result = $conn->query($query);
+
+    while ($row = $result->fetch_assoc()) {
+
+        echo "<div class='showcase-container'>";
+        echo "<div class='showcase'>";
+        echo "<div class='showcase-banner'>";
+        echo "<img src='" . $row['itemImage'] . "' alt='shampoo, conditioner & facewash packs' class='showcase-img'>";
+        echo "</div>";
+        echo "<div class='showcase-content'>";
+        echo "<a href='#'>";
+        echo "<h3 class='showcase-title'> {$row['itemTitle']} </h3>";
+        echo "</a>";
+        echo "<p class='showcase-desc'>";
+        echo "{$row['itemDesc']}";
+        echo "</p>";
+        echo "<div class='price-box'>";
+        echo "<p class='price'>₹{$row['salePrice']}</p>";
+        echo "<del>₹{$row['usualPrice']}</del>";
+        echo "</div>";
+        echo "<button class='add-cart-btn'>add to cart</button>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+
+    }
+
+}
+
 
 ?>
