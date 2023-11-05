@@ -41,23 +41,11 @@
 -->
 
 <?php
-
+session_start();
 require_once "components/header.php";
 
 require_once 'config.php';
 
-$cart = [];
-if (isset($_SESSION['cart'])) {
-    $cart = $_SESSION['cart'];
-}
-
-if (empty($cart)) {
-    echo "Your cart is empty.";
-}else{
-    foreach ($cart as $item) {
-        echo $item['id'];
-    }
-}
 
 if (isset($_GET['itemId'])) {
     $received_data = urldecode($_GET['itemId']);
@@ -94,7 +82,10 @@ function loadProduct($productId)
         echo "<p class='price'>₹{$row['salePrice']}</p>";
         echo "<del>₹{$row['usualPrice']}</del>";
         echo "</div>";
-        echo "<button class='add-cart-btn'>add to cart</button>";
+        echo "<form action='utils/addToCart.php' method='post'>";
+        echo "<input type='hidden' name='product_id' value='".$row['itemId']."'>";
+        echo "<button class='add-cart-btn' type='submit'>add to cart</button>";
+        echo "</form>";
         echo "</div>";
         echo "</div>";
         echo "</div>";

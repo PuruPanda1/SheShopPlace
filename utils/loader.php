@@ -16,7 +16,7 @@ function loadBanner()
         echo "<p class='banner-subtitle'>{$row['bannerSubtitle']}</p>";
         echo "<h2 class='banner-title'>{$row['bannerTitle']}</h2>";
         echo "<p class='banner-text'>";
-        echo "starting at ₹ <b>{$row['bannerPrice']}</b>.00";
+        echo "starting at ₹ <b>{$row['bannerPrice']}</b>";
         echo "</p>";
         echo "<a href={$row['bannerUrl']} class='banner-btn'>Shop now</a>";
         echo "</div>";
