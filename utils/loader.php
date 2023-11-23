@@ -36,7 +36,8 @@ function loadCategory()
 
     while ($row = $result->fetch_assoc()) {
 
-        echo "<div class='category-item'>";
+        $cat = $row['categoryTitle'];
+        echo "<div class='category-item' onclick='redirectToCategoryPage(".$row['categoryId'].")'>";
         echo "<div class='category-img-box'>";
         echo "<img src='" . $row['categoryImage'] . "' alt='dress & frock' width='30'>";
         echo "</div>";
@@ -83,7 +84,7 @@ function loadItemSmall($itemCat)
 
     $result = $conn->query($query);
     while ($row = $result->fetch_assoc()) {
-        echo "<div class='showcase' onclick='redirectToProductPage(".$row['itemId'] .")'>";
+        echo "<div class='showcase' onclick='redirectToProductPage(" . $row['itemId'] . ")'>";
         echo "<a href='#' class='showcase-img-box'>";
         echo "<img src='" . $row['itemImage'] . "'alt='relaxed short full sleeve t-shirt' width='70' class='showcase-img'>";
         echo "</a>";
@@ -129,7 +130,7 @@ function loadFeaturedProduct()
         echo "<del>₹{$row['usualPrice']}</del>";
         echo "</div>";
         echo "<form action='utils/addToCart.php' method='post'>";
-        echo "<input type='hidden' name='product_id' value='".$row['itemId']."'>";
+        echo "<input type='hidden' name='product_id' value='" . $row['itemId'] . "'>";
         echo "<button class='add-cart-btn' type='submit'>add to cart</button>";
         echo "</form>";
         echo "</div>";
@@ -152,10 +153,10 @@ function loadNewProducts()
 
     while ($row = $result->fetch_assoc()) {
 
-        echo "<div class='showcase' onclick='redirectToProductPage(".$row['itemId'] .")'>";
+        echo "<div class='showcase' onclick='redirectToProductPage(" . $row['itemId'] . ")'>";
         echo "<div class='showcase-banner'>";
-        echo "<img src='".$row['itemImage']."' alt='Mens Winter Leathers Jackets' width='300' class='product-img default'>";
-        echo "<img src='".$row['itemImage']."' alt='Mens Winter Leathers Jackets' width='300' class='product-img hover'>";
+        echo "<img src='" . $row['itemImage'] . "' alt='Mens Winter Leathers Jackets' width='300' class='product-img default'>";
+        echo "<img src='" . $row['itemImage'] . "' alt='Mens Winter Leathers Jackets' width='300' class='product-img hover'>";
         echo "</div>";
         echo "<div class='showcase-content'>";
         echo "<a href='#' class='showcase-category'>${row['itemType']}</a>";
@@ -209,6 +210,71 @@ function loadProduct($productId)
     }
 
 }
+
+
+function loadItemInCart($productId)
+{
+
+    global $conn;
+
+    $query = "SELECT * FROM `items` WHERE itemId = ${productId}";
+
+    $result = $conn->query($query);
+
+    while ($row = $result->fetch_assoc()) {
+
+        echo "<div class='flex justify-between items-center mt-6 pt-6'>";
+        echo "<div class='flex  items-center'>";
+        echo "<img src='".$row['itemImage']."' width='60' class='rounded-full '>";
+        echo "<div class='flex flex-col ml-3'>";
+        echo "<span class='md:text-md font-medium'>${row['itemTitle']}</span>";
+        echo "</div>";
+        echo "</div>";
+        echo "<div class='flex justify-center items-center'>";
+        echo "<div class='pr-8 '>";
+        echo "<span class='text-xs font-medium'>₹${row['salePrice']}</span>";
+        echo "</div>";
+        echo "<div>";
+        echo "<i class='fa fa-close text-xs font-medium'></i>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+    }
+
+}
+
+function loadCatProducts($cat)
+{
+    global $conn;
+
+    $query = "SELECT * FROM `items` WHERE itemCat = '".$cat."'";
+
+    $result = $conn->query($query);
+
+    while ($row = $result->fetch_assoc()) {
+
+        echo "<div class='showcase cursor-pointer' onclick='redirectToProductPage(" . $row['itemId'] . ")'>";
+        echo "<div class='showcase-banner'>";
+        echo "<img src='" . $row['itemImage'] . "' alt='Mens Winter Leathers Jackets' width='300' class='product-img default'>";
+        echo "<img src='" . $row['itemImage'] . "' alt='Mens Winter Leathers Jackets' width='300' class='product-img hover'>";
+        echo "</div>";
+        echo "<div class='showcase-content'>";
+        echo "<a href='#' class='showcase-category'>${row['itemType']}</a>";
+        echo "<a href='#'>";
+        echo "<h3 class='showcase-title'>${row['itemTitle']}</h3>";
+        echo "</a>";
+        echo "<div class='price-box'>";
+        echo "<p class='price'>₹${row['salePrice']}</p>";
+        echo "<del>₹${row['usualPrice']}</del>";
+        echo "</div>";
+        echo "</div>";
+        echo "</div>";
+
+    }
+
+
+}
+
 
 
 ?>

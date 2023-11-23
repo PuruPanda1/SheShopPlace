@@ -22,9 +22,9 @@ session_start()
     -->
     <link rel="stylesheet" href="./assets/css/style-prefix.css">
     <link rel="stylesheet" href="./assets/css/style.css">
-<!--    <link rel="stylesheet" href="./assets/css/main.css">-->
-<!--    <link rel="stylesheet" href="./assets/css/util.css">-->
-<!--    <link rel="stylesheet" href="./assets/css/loginform.css">-->
+    <!--    <link rel="stylesheet" href="./assets/css/main.css">-->
+    <!--    <link rel="stylesheet" href="./assets/css/util.css">-->
+    <!--    <link rel="stylesheet" href="./assets/css/loginform.css">-->
 
 
     <!--
@@ -44,99 +44,56 @@ session_start()
 -->
 
 <?php
-require_once "components/header.php"
+require_once "components/header.php";
+require_once "config.php";
 ?>
+<div class="product-container">
 
-
-<!--
-  - MAIN
--->
-
-<main>
-
-    <!--
-      - BANNER
-    -->
-
-    <?php
-    require_once "components/banner.php"
-    ?>
-
-    <!--
-      - CATEGORY
-    -->
-
-    <?php
-    require_once "components/category.php"
-    ?>
-
-    <!--
-      - PRODUCT
-    -->
-
-    <?php
-        require_once "components/productContainer.php"
-    ?>
-
-    <!--
-      - TESTIMONIALS, CTA & SERVICE
-    -->
-
-    <div>
-
-        <div class="container">
-
+    <div class="container">
+        <div class="product-main">
             <?php
-            //                require_once "components/testimonals.php"
+            if (isset($_GET['cat'])) {
+                $catId = urldecode($_GET['cat']);
+                global $conn;
+
+
+                $query = "SELECT * FROM `category` WHERE categoryId = $catId";
+
+                $result = $conn->query($query);
+
+                $received_data = "";
+                while ($row = $result->fetch_assoc()) {
+                    $received_data = $row['categoryTitle'];
+                }
+
+
+                echo "<h2 class='title'>${received_data}</h2>";
+                echo '<div class="product-grid">';
+                require_once "utils/loader.php";
+                loadCatProducts($received_data);
+                echo "</div>";
+            }
             ?>
 
 
         </div>
-
     </div>
+</div>
 
-
-    <!--
-      - BLOG -- for future if needed!
-    -->
-
-    <?php
-        require_once "components/productContainer.php"
-    ?>
-
-</main>
-
-
-<!--
-  - FOOTER
--->
-
-<?php
-    require_once "components/footer.php"
-?>
-
-<!--
-    custom functions for jumping to page!
--->
 
 <script>
     function redirectToProductPage(itemId) {
-        window.location.href = `productPage.php?itemId=`+itemId;
-    }
-
-    function redirectToCategoryPage(itemCat) {
-        console.log("inside cate switch");
-        window.location.href = `CategoryPage.php?cat=`+itemCat;
+        window.location.href = `productPage.php?itemId=` + itemId;
     }
 
     function redirectToCart() {
         window.location.href = `cart.php`;
     }
 
-    function addToCart(productId, qty){
+    function addToCart(productId, qty) {
         console.log("inside add to Cart")
         var cart = JSON.parse(localStorage.getItem('cart')) || [];
-        cart.push({ id: productId, qty: qty });
+        cart.push({id: productId, qty: qty});
         localStorage.setItem('cart', JSON.stringify(cart));
     }
 
