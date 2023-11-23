@@ -96,12 +96,16 @@
                     <ion-icon name="bag-handle-outline"></ion-icon>
                     <span class="count">
                         <?php
+                        if(isset($_SESSION['cart'])){
                             $ids = $_SESSION['cart'];
-                            $size = 0;
+                        }
+                        $size = 0;
+                        if (isset($ids)){
                             foreach ($ids as $id){
                                 $size = $size + 1;
                             }
-                            echo $size;
+                        }
+                        echo $size;
                         ?>
                     </span>
                 </button>
