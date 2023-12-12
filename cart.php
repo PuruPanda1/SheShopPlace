@@ -216,7 +216,7 @@ session_start()
 <script>
     function redirectToCheckout() {
         // window.location.href = `utils/checkout.php`;
-        window.location.href = `paytm/TxnTest.php`;
+        window.location.href = `checkout.php`;
     }
 
     function redirectToHomePage() {

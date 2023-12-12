@@ -50,6 +50,7 @@ if($_SERVER['REQUEST_METHOD']=='POST')
                 $_SESSION['email']=$email;
                 $_SESSION['username']=$row['username'];
                 $_SESSION['loggedin']=true;
+                $_SESSION['userId'] = $row['userid'];
                 header("location:index.php");
             }
         }
