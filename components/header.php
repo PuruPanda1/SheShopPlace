@@ -78,7 +78,7 @@
                         echo '<div class="dropdown">
                                     <a href="#" class="dropbtn">'. $_SESSION["username"].'</a>
                                     <div class="dropdown-content">
-                                    <a href="./previousorders.php">Orders</a>
+                                    <a href="./myOrders.php">Orders</a>
                                     <a href="./logout.php">Log Out</a>
                                     </div>
                                   </div>';

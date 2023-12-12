@@ -1,5 +1,4 @@
 <?php
-// TODO insert the items in the cart to the order table with the user details
 session_start();
 require_once "config.php";
 require_once "data/model/item.php";

@@ -53,7 +53,6 @@ session_start()
 
 <script src="https://unpkg.com/@lottiefiles/lottie-player@latest/dist/lottie-player.js"></script>
 <?php
-// TODO insert the items in the cart to the order table with the user details
 require_once "config.php";
 require_once "data/model/item.php";
 
