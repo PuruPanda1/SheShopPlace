@@ -127,61 +127,20 @@
                 </li>
 
                 <li class="menu-category">
-                    <a href="#" class="menu-title">Traditional</a>
+                    <a href="http://localhost/sheshopplace/sheshopplaye-ecommerce-website/CategoryPage.php?cat=2" class="menu-title" ">Winter Wear</a>
 
                 </li>
 
                 <li class="menu-category">
-                    <a href="#" class="menu-title">Western</a>
-
+                    <a href="http://localhost/sheshopplace/sheshopplaye-ecommerce-website/CategoryPage.php?cat=4" class="menu-title">Shorts & Jeans</a>
                 </li>
 
                 <li class="menu-category">
-                    <a href="#" class="menu-title">Jewelry</a>
-
-                    <ul class="dropdown-list">
-
-                        <li class="dropdown-item">
-                            <a href="#">Earrings</a>
-                        </li>
-
-                        <li class="dropdown-item">
-                            <a href="#">Couple Rings</a>
-                        </li>
-
-                        <li class="dropdown-item">
-                            <a href="#">Necklace</a>
-                        </li>
-
-                        <li class="dropdown-item">
-                            <a href="#">Bracelets</a>
-                        </li>
-
-                    </ul>
+                    <a href="http://localhost/sheshopplace/sheshopplaye-ecommerce-website/CategoryPage.php?cat=1" class="menu-title" >Dress & Frock</a>
                 </li>
 
                 <li class="menu-category">
-                    <a href="#" class="menu-title">Perfume</a>
-
-                    <ul class="dropdown-list">
-
-                        <li class="dropdown-item">
-                            <a href="#">Clothes Perfume</a>
-                        </li>
-
-                        <li class="dropdown-item">
-                            <a href="#">Deodorant</a>
-                        </li>
-
-                        <li class="dropdown-item">
-                            <a href="#">Flower Fragrance</a>
-                        </li>
-
-                        <li class="dropdown-item">
-                            <a href="#">Air Freshener</a>
-                        </li>
-
-                    </ul>
+                    <a href="http://localhost/sheshopplace/sheshopplaye-ecommerce-website/CategoryPage.php?cat=10" class="menu-title" >Perfume</a>
                 </li>
 
 

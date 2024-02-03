@@ -47,61 +47,45 @@ require_once "config.php";
     <table>
         <thead>
         <tr>
-            <th>Order ID</th>
+            <th>Item Id</th>
             <th>Product</th>
-            <th>Date</th>
             <th>Amount</th>
-            <th>Status</th>
-            <th>Action</th>
         </tr>
         </thead>
         <tbody>
         <?php
+        if (isset($_GET['orderId'])) {
+            $orderId = urldecode($_GET['orderId']);
+        }
         $userId = $_SESSION['userId'];
-        $sql = 'SELECT * FROM `orders` WHERE customerId="' . $userId . '";';
+        $sql = 'SELECT * FROM `orderitems` WHERE orderId="' . $orderId . '";';
         $result = mysqli_query($conn, $sql);
         $num = mysqli_num_rows($result);
+        $total  =0;
         while ($num > 0) {
             $row = mysqli_fetch_assoc($result);
-            $datetime = explode(" ", $row['orderDate']);
-            $date = $datetime[0];
-            $time = $datetime[1];
-            $orderId = $row['orderId'];
-            $price = $row['totalAmount'];
+            $itemId = $row['itemId'];
+            $productName = $row['itemName'];
+            $price = $row['itemPrice'];
+            $total = $total + $price;
             $qty = 1;
-            $total = $row['totalAmount'];
-            $status = $row['orderStatus'];
-
-            $getCountQuery = 'SELECT * FROM `orderitems` WHERE orderId="' . $orderId . '";';
-            $countResult = mysqli_query($conn, $getCountQuery);
-            $row2 = mysqli_fetch_assoc($countResult);
-            $num2 = mysqli_num_rows($countResult);
-
-            $itemName = $row2['itemName'];
-            $itemCount=-1;
-            while ($num2 > 0) {
-                $row2 = mysqli_fetch_assoc($countResult);
-                $itemCount++;
-                $num2--;
-            }
-            if($itemCount>0){
-                $productName = $itemName . " + $itemCount";
-            }else{
-                $productName =$itemName;
-            }
 
             echo "
                                 <tr>
-                                <td>$orderId</td>
+                                <td>$itemId</td>
                                 <td>$productName</td>
-                                <td>$date</td>
-                                <td>Rs. $total/-</td>
-                                <td><span class='order-status $status'>$status</span></td>
-                                <td><span class='order-status Completed' onclick='redirectToOrder($orderId)'>View Details</span></td>
+                                <td>$price</td>
                                 </tr>
                             ";
             $num--;
         }
+        echo "
+                                <tr>
+                                <td>Total</td>
+                                <td></td>
+                                <td>$total</td>
+                                </tr>
+                            ";
         ?>
         </tbody>
     </table>
@@ -114,7 +98,7 @@ require_once "config.php";
 <script nomodule src="https://unpkg.com/ionicons@5.5.2/dist/ionicons/ionicons.js"></script>
 <script>
     function redirectToOrder(orderId) {
-        window.location.href = `orderPage.php?orderId=` + orderId;
+        window.location.href = `productPage.php?itemId=`+orderId;
     }
 </script>
 </body>
